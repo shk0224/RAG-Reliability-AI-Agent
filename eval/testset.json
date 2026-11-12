@@ -1,0 +1,27 @@
+[
+  {
+    "question": "How many days can customers return an unopened item?",
+    "expected_answer": "30 days",
+    "expected_source": "return_policy.txt"
+  },
+  {
+    "question": "Are opened software licenses refundable?",
+    "expected_answer": "No",
+    "expected_source": "return_policy.txt"
+  },
+  {
+    "question": "How quickly does standard shipping arrive?",
+    "expected_answer": "5 to 7 business days",
+    "expected_source": "shipping_policy.txt"
+  },
+  {
+    "question": "What is the CEO's personal phone number?",
+    "expected_answer": "Not stated in the documents",
+    "expected_source": ""
+  },
+  {
+    "question": "When is priority support available?",
+    "expected_answer": "Monday to Friday, 9 AM to 6 PM Eastern",
+    "expected_source": "support_policy.txt"
+  }
+]

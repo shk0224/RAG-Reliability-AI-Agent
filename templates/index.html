@@ -1,0 +1,5 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>RAG Reliability AI</title><link rel="stylesheet" href="/static/style.css"></head>
+<body><main><h1>RAG Reliability AI Agent</h1><p>Upload documents, then ask evidence-based questions.</p>
+<section><h2>1. Upload a document</h2><form id="uploadForm"><input type="file" id="document" accept=".pdf,.docx,.txt" required><button>Upload & Index</button></form><p id="uploadStatus"></p></section>
+<section><h2>2. Ask a question</h2><form id="askForm"><textarea id="question" rows="3" placeholder="What is the refund policy?" required></textarea><button>Ask Agent</button></form><p id="askStatus"></p><h3>Answer</h3><div id="answer"></div><h3>Sources</h3><div id="sources"></div></section></main><script src="/static/script.js"></script></body></html>

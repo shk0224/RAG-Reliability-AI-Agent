@@ -1,8 +1,10 @@
+
 """FastAPI entry point. Start with: python app.py"""
 
 from pathlib import Path
 from uuid import uuid4
 import os
+import traceback
 import uvicorn
 
 from fastapi import FastAPI, File, UploadFile, HTTPException
@@ -69,7 +71,9 @@ def health():
 def ask(request: AskRequest):
     try:
         return run_rag_agent(request.question)
+
     except Exception as error:
+        traceback.print_exc()
         raise HTTPException(
             status_code=502,
             detail=f"Agent failed: {type(error).__name__}"
@@ -91,6 +95,7 @@ async def upload(file: UploadFile = File(...)):
 
     try:
         content = await file.read(MAX_SIZE + 1)
+
         if len(content) > MAX_SIZE:
             raise HTTPException(413, "Maximum upload size is 5 MB")
 
@@ -99,12 +104,15 @@ async def upload(file: UploadFile = File(...)):
 
         try:
             return index_document(str(destination))
+
         except Exception as error:
+            traceback.print_exc()
             destination.unlink(missing_ok=True)
             raise HTTPException(
                 status_code=502,
                 detail=f"Indexing failed: {type(error).__name__}"
             ) from error
+
     finally:
         await file.close()
 
